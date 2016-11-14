@@ -9,3 +9,9 @@ CREATE TABLE `personrepository`.`grocerylist` (
 
 ALTER TABLE `personrepository`.`grocerylist` 
 CHANGE COLUMN `shopdate` `shopdate` VARCHAR(10) NULL DEFAULT NULL ;
+
+ALTER TABLE `personrepository`.`grocerylist` 
+CHANGE COLUMN `unitprice` `unitprice` DECIMAL(5,2) ZEROFILL NULL DEFAULT NULL ;
+
+ALTER TABLE `personrepository`.`grocerylist` 
+CHANGE COLUMN `itemquantity` `itemquantity` INT(2) NULL DEFAULT NULL ;

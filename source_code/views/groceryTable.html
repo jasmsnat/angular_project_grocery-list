@@ -21,19 +21,27 @@
     <div class="col-md-1">
         <label>Quantity</label>
     </div>
+    <div class="col-md-1">
+        <label>Obtained</label>
+    </div>
 </div>
 <div class="row" ng-repeat="grocery in groceryListArray | filter:search">
-    <div class="col-md-2">
-        {{grocery.shopdate}}
-    </div>
-    <div class="col-md-2">
-        {{grocery.itemname}}
+    <div ng-class="{strike:complete}">
+        <div class="col-md-2">
+            {{grocery.shopdate}}
+        </div>
+        <div class="col-md-2">
+            {{grocery.itemname}}
+        </div>
+        <div class="col-md-1">
+            {{grocery.unitprice}}
+        </div>
+        <div class="col-md-1">
+            {{grocery.itemquantity}}
+        </div>
     </div>
     <div class="col-md-1">
-        {{grocery.unitprice}}
-    </div>
-    <div class="col-md-1">
-        {{grocery.itemquantity}}
+        <input type="checkbox" ng-model="complete">
     </div>
     <div class="col-md-2">
         <button type="button" class="btn btn-info" ng-click="groceryListFunctions.editItemEntry(grocery)">Edit</button>

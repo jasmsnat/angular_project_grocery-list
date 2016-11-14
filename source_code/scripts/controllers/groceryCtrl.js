@@ -25,10 +25,15 @@ angular.module("appGrocery")
     $scope.groceryListFunctions = {
         addItemEntry: function() {
 //            alert("testing submit");
-            groceryService.addItemEntry().then(function() {
+            if($scope.groceryListModel.shopDate == null || $scope.groceryListModel.itemName == null || $scope.groceryListModel.unitPrice == null ||  $scope.groceryListModel.itemQuantity == null) {
+                alert("Invalid submission - please complete all required fields");
                 updateGroceryList();
-                resetInput();
-            });
+            } else {
+                groceryService.addItemEntry().then(function() {
+                    updateGroceryList();
+                    resetInput();
+                });
+            }
         },
         deleteItemEntry: function(id) {
             groceryService.deleteGroceryTable(id).then(function() {

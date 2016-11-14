@@ -1,6 +1,6 @@
 <div class="row">
     <div class="col-md-2">
-        <label>Date</label>
+        <label>Date</label> (yyyy-mm-dd)
     </div>
     <div class="col-md-2">
         <label>Item</label>
@@ -13,18 +13,28 @@
     </div>
 </div>
 <div class="row">
-    <div class="col-md-2">
-        <input type="text" class="form-control" placeholder="yyyy-mm-dd" ng-model="groceryListModelEdit.shopdate">
-    </div>
-    <div class="col-md-2">
-        <input type="text" class="form-control" placeholder="enter item name" ng-model="groceryListModelEdit.itemname">
-    </div>
-    <div class="col-md-1">
-        <input type="number" class="form-control" placeholder="enter unit price" ng-model="groceryListModelEdit.unitprice">
-    </div>
-    <div class="col-md-1">
-        <input type="number" class="form-control" placeholder="quantity" ng-model="groceryListModelEdit.itemquantity">
-    </div>
-    <button type="button" class="btn btn-success" ng-click="groceryListFunctions.updateItemEntry(groceryListModelEdit)">Update</button>
+    <form name="groceryInputEdit">
+        <div class="col-md-2">
+            <input type="text" name="editDate" class="form-control" placeholder="yyyy-mm-dd" ng-model="groceryListModelEdit.shopdate" ng-pattern="/^201[0-9]{1}-[0-9]{2}-[0-9]{2}$/" required>
+            <span ng-show="groceryInputEdit.editDate.$error.pattern">*invalid date</span>
+            <span ng-show="groceryInputEdit.editDate.$error.required">*required</span>
+        </div>
+        <div class="col-md-2">
+            <input type="text" name="editName" class="form-control" placeholder="enter item name" ng-model="groceryListModelEdit.itemname" ng-pattern="/^[a-z|A-Z| ]{1,45}$/" required>
+            <span ng-show="groceryInputEdit.editName.$error.pattern">*invalid name</span>
+            <span ng-show="groceryInputEdit.editName.$error.required">*required</span>
+        </div>
+        <div class="col-md-1">
+            <input type="text" name="editPrice" class="form-control" placeholder="##.##" ng-model="groceryListModelEdit.unitprice" ng-pattern="/^[0-9]{0,2}.[0-9]{2}$/" required>
+            <span ng-show="groceryInputEdit.editPrice.$error.pattern">*invalid price</span>
+            <span ng-show="groceryInputEdit.editPrice.$error.required">*required</span>
+        </div>
+        <div class="col-md-1">
+            <input type="number" name="editQuantity" class="form-control" placeholder="1-99" ng-model="groceryListModelEdit.itemquantity" ng-pattern="/^[0-9]{1,2}$/" required>
+            <span ng-show="groceryInputEdit.editQuantity.$error.pattern">*invalid quantity</span>
+            <span ng-show="groceryInputEdit.editQuantity.$error.required">*required</span>
+        </div>
+        <button type="button" class="btn btn-success" ng-click="groceryListFunctions.updateItemEntry(groceryListModelEdit)">Update</button>
+    </form>
 </div>
 
