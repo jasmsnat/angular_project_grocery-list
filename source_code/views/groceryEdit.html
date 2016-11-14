@@ -1,0 +1,30 @@
+<div class="row">
+    <div class="col-md-2">
+        <label>Date</label>
+    </div>
+    <div class="col-md-2">
+        <label>Item</label>
+    </div>
+    <div class="col-md-1">
+        <label>Unit Price</label>
+    </div>
+    <div class="col-md-1">
+        <label>Quantity</label>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-2">
+        <input type="text" class="form-control" placeholder="yyyy-mm-dd" ng-model="groceryListModelEdit.shopdate">
+    </div>
+    <div class="col-md-2">
+        <input type="text" class="form-control" placeholder="enter item name" ng-model="groceryListModelEdit.itemname">
+    </div>
+    <div class="col-md-1">
+        <input type="number" class="form-control" placeholder="enter unit price" ng-model="groceryListModelEdit.unitprice">
+    </div>
+    <div class="col-md-1">
+        <input type="number" class="form-control" placeholder="quantity" ng-model="groceryListModelEdit.itemquantity">
+    </div>
+    <button type="button" class="btn btn-success" ng-click="groceryListFunctions.updateItemEntry(groceryListModelEdit)">Update</button>
+</div>
+
