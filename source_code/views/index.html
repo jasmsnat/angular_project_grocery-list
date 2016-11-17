@@ -4,8 +4,8 @@
         <title>Grocery List</title>
         <link rel="stylesheet" href="/node_modules/bootstrap/dist/css/bootstrap.css">
         <style>
-            .strike {
-                text-decoration:line-through;
+            .groceryTableHeaders {
+                cursor: pointer;
             }
         </style>
     </head>
@@ -18,7 +18,6 @@
         <hr>
         <h1>Grocery Edit</h1>
         <grocery-edit></grocery-edit>
-        
         <script type="text/javascript" src="/node_modules/angular/angular.js"></script>
         <script type="text/javascript" src="/source_code/scripts/app.js"></script>
         <script type="text/javascript" src="/source_code/scripts/controllers/groceryCtrl.js"></script>
@@ -26,5 +25,6 @@
         <script type="text/javascript" src="/source_code/scripts/directives/groceryForm.js"></script>
         <script type="text/javascript" src="/source_code/scripts/directives/groceryTable.js"></script>
         <script type="text/javascript" src="/source_code/scripts/directives/groceryEdit.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-filter/0.5.8/angular-filter.min.js"></script>
     </body>
 </html>

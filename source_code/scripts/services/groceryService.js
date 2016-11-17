@@ -8,6 +8,7 @@ angular.module("appGrocery")
         itemName: "",
         unitPrice: "",
         itemQuantity: ""
+//        itemTotal: ""
     }
     
     this.addItemEntry = addItemEntry;

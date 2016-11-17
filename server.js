@@ -2,8 +2,8 @@ var express = require('express');
 var bodyParser = require('body-parser');
 var mysql = require('mysql');
 var connection = require('express-myconnection');
-var basePath = "/service";
 var app = express();
+var basePath = "/service";
 
 app.use(bodyParser.json()); //supports json-encoded bodies
 app.use(bodyParser.urlencoded({ //supports url-encoded bodies
@@ -43,7 +43,8 @@ var getPutObj = {
         url: basePath + "/grocery/:itemid",
         ids: ["itemid"],
         query: "UPDATE grocerylist SET ? WHERE itemid = ?"
-    }
+    },
+    
 }
 
 var getDeleteObj = {

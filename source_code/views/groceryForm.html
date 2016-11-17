@@ -1,40 +1,63 @@
-<div class="row">
-    <div class="col-md-2">
-        <label>Date</label> (yyyy-mm-dd)
-    </div>
-    <div class="col-md-2">
-        <label>Item</label>
-    </div>
-    <div class="col-md-1">
-        <label>Unit Price</label>
-    </div>
-    <div class="col-md-1">
-        <label>Quantity</label>
-    </div>
-</div>
-<div class="row">
-    <form name="groceryInput">
+<form name="groceryInput">
+    <div class="row">
         <div class="col-md-2">
-            <input type="text" name="date" class="form-control" placeholder="yyyy-mm-dd" ng-model="groceryListModel.shopDate" ng-pattern="/^201[0-9]{1}-[0-9]{2}-[0-9]{2}$/" required>
+            <label>Date</label>
+        </div>
+        <div class="col-md-2">
+            <label>Item</label>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-2">
+            (yyyy-mm-dd)
+        </div>
+        <div class="col-md-2">
+            (e.g. apple, banana, etc.)
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-2">
+            <input type="text" name="date" class="form-control" placeholder="shopping date" ng-model="groceryListModel.shopDate" ng-pattern="/^201[0-9]{1}-[0-9]{2}-[0-9]{2}$/" required>
             <span ng-show="groceryInput.date.$error.pattern">*invalid date</span>
             <span ng-show="groceryInput.date.$error.required">*required</span>
         </div>
         <div class="col-md-2">
-            <input type="text" name="item" class="form-control" placeholder="enter item name" ng-model="groceryListModel.itemName" ng-pattern="/^[a-z|A-Z| ]{1,45}$/" required>
-            <span ng-show="groceryInput.item.$error.pattern">*invalid item</span>
+            <input type="text" name="item" class="form-control" placeholder="item name" ng-model="groceryListModel.itemName" ng-pattern="/^[a-z|A-Z| ]{1,45}$/" required>
+            <span ng-show="groceryInput.item.$error.pattern">*invalid item name</span>
             <span ng-show="groceryInput.item.$error.required">*required</span>
         </div>
+    </div>
+    <br>
+    <div class="row">
         <div class="col-md-1">
-            <input type="number" name="price" class="form-control" placeholder="##.##" ng-model="groceryListModel.unitPrice" ng-pattern="/^[0-9]{0,2}.[0-9]{2}$/" required>
-            <span ng-show="groceryInput.price.$error.pattern">*invalid price</span>
+            <label>Unit Price</label>
+        </div>
+        <div class="col-md-1">
+            <label>Quantity</label>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-1">
+            (##.##)
+        </div>
+        <div class="col-md-1">
+            (1-99)
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-1">
+            <input type="number" name="price" class="form-control" placeholder="price" ng-model="groceryListModel.unitPrice" ng-pattern="/^[0-9]{0,2}.[0-9]{2}$/" required>
+            <span ng-show="groceryInput.price.$error.pattern">*invalid (##.##)</span>
             <span ng-show="groceryInput.price.$error.required">*required</span>
         </div>
         <div class="col-md-1">
-            <input type="number" name="quantity" class="form-control" placeholder="1-99" ng-model="groceryListModel.itemQuantity" ng-pattern="/^[0-9]{1,2}$/" required>
-            <span ng-show="groceryInput.quantity.$error.pattern"> *invalid quantity</span>
+            <input type="number" name="quantity" class="form-control" placeholder="quantity" ng-model="groceryListModel.itemQuantity" ng-pattern="/^[0-9]{1,2}$/" required>
+            <span ng-show="groceryInput.quantity.$error.pattern"> *invalid (1-99)</span>
             <span ng-show="groceryInput.quantity.$error.required">*required</span>
         </div>
-        <button type="button" class="btn btn-success" ng-click="groceryListFunctions.addItemEntry()">Submit</button>
-    </form>
-</div>
+        <div class="col-md-2">
+            <button type="button" class="btn btn-success" ng-click="groceryListFunctions.addItemEntry()">Submit</button>
+        </div>
+    </div>
+</form>
 

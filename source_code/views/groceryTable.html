@@ -5,28 +5,40 @@
 </div>
 <div class="row">
     <div class="col-md-2">
-        <input type="text" class="form-control" ng-model="search" placeholder="enter search">
+        <select class="search form-control" ng-model="search">
+            <option value=""></option>
+            <option ng-repeat="grocery in groceryListArray | unique:'shopdate' | orderBy:'shopdate'">{{grocery.shopdate}}</option>
+        </select>
     </div>
+    <!--<div class="col-md-2">
+        <input type="text" class="form-control" ng-model="search" placeholder="enter search" value="">
+    </div>-->
 </div>
+<br>
 <div class="row">
     <div class="col-md-2">
-        <label>Date</label>
+        <label class="groceryTableHeaders" ng-click="groceryListSort.toggleColumn('shopdate')">Date</label>
     </div>
     <div class="col-md-2">
-        <label>Item</label>
+        <label class="groceryTableHeaders" ng-click="groceryListSort.toggleColumn('itemname')">Item</label>
     </div>
     <div class="col-md-1">
-        <label>Unit Price</label>
+        <label class="groceryTableHeaders" ng-click="groceryListSort.toggleColumn('unitprice')">Unit Price</label>
     </div>
     <div class="col-md-1">
-        <label>Quantity</label>
+        <label class="groceryTableHeaders" ng-click="groceryListSort.toggleColumn('itemquantity')">Quantity</label>
     </div>
+<!--
+    <div class="col-md-1">
+        <label>Item Total</label>
+    </div>
+-->
     <div class="col-md-1">
         <label>Obtained</label>
     </div>
 </div>
-<div class="row" ng-repeat="grocery in groceryListArray | filter:search">
-    <div ng-class="{strike:complete}">
+<div class="row" ng-repeat="grocery in groceryListArray | filter:search | orderBy:groceryListSort.sortBy:groceryListSort.sortOrder">
+    <div>
         <div class="col-md-2">
             {{grocery.shopdate}}
         </div>
@@ -39,6 +51,11 @@
         <div class="col-md-1">
             {{grocery.itemquantity}}
         </div>
+<!--
+        <div class="col-md-1">
+            {{grocery.itemtotal}}
+        </div>
+-->
     </div>
     <div class="col-md-1">
         <input type="checkbox" ng-model="complete">
