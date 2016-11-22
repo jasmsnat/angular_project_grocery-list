@@ -1,7 +1,7 @@
 <form name="groceryInputEdit">
     <div class="row">
         <div class="col-md-2">
-            <label>Date</label> (yyyy-mm-dd)
+            <label>Date</label>
         </div>
         <div class="col-md-2">
             <label>Item</label>
@@ -54,6 +54,6 @@
             <span ng-show="groceryInputEdit.editQuantity.$error.pattern">*invalid quantity</span>
             <span ng-show="groceryInputEdit.editQuantity.$error.required">*required</span>
         </div>
-        <button type="button" class="btn btn-success" ng-click="groceryListFunctions.updateItemEntry(groceryListModelEdit)">Update</button>
+        <button type="button" class="updateButton btn btn-success" ng-click="groceryListFunctions.updateItemEntry(groceryListModelEdit)" ng-disabled="groceryInputEdit.$invalid">Update</button>
     </div>
 </form>

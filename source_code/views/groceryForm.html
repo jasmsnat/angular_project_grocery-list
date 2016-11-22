@@ -56,7 +56,7 @@
             <span ng-show="groceryInput.quantity.$error.required">*required</span>
         </div>
         <div class="col-md-2">
-            <button type="button" class="btn btn-success" ng-click="groceryListFunctions.addItemEntry()">Submit</button>
+            <button type="button" class="btn btn-success" ng-click="groceryListFunctions.addItemEntry()" ng-disabled="groceryInput.$invalid">Submit</button>
         </div>
     </div>
 </form>

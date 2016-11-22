@@ -2,6 +2,9 @@
     <div class="col-md-2">
         <label>Search</label>
     </div>
+    <div class="col-md-2">
+        <label>Total</label>
+    </div>
 </div>
 <div class="row">
     <div class="col-md-2">
@@ -10,9 +13,9 @@
             <option ng-repeat="grocery in groceryListArray | unique:'shopdate' | orderBy:'shopdate'">{{grocery.shopdate}}</option>
         </select>
     </div>
-    <!--<div class="col-md-2">
-        <input type="text" class="form-control" ng-model="search" placeholder="enter search" value="">
-    </div>-->
+    <div class="col-md-2">
+        <label>$</label>
+    </div>
 </div>
 <br>
 <div class="row">
@@ -46,7 +49,7 @@
             {{grocery.itemname}}
         </div>
         <div class="col-md-1">
-            {{grocery.unitprice}}
+            ${{grocery.unitprice}}
         </div>
         <div class="col-md-1">
             {{grocery.itemquantity}}

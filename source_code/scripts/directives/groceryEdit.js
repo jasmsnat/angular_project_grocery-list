@@ -4,5 +4,5 @@ angular.module("appGrocery").directive("groceryEdit", function() {
         restrict: "EAC",
         controller: "groceryCtrl",
         templateUrl: "/source_code/views/groceryEdit.html"
-    }
-})
+        }
+});
